@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyRecipeAppTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-
+                    RecipeScreen()
                 }
             }
         }
