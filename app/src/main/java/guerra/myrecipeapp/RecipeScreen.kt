@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -19,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
@@ -44,7 +46,11 @@ fun RecipeScreen(modifier: Modifier = Modifier, viewState: MainViewModel.RecipeS
 
 @Composable
 fun CategoryScreen(categories: List<Category>, navigateToDetail: (Category) -> Unit){
-    LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
+
+    Text(text = "Categories", textAlign = TextAlign.Center, modifier = Modifier.padding(top = 50.dp).fillMaxWidth(),
+        style = androidx.compose.ui.text.TextStyle(fontWeight = FontWeight.Bold))
+
+    LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize().padding(top = 50.dp)) {
         items(categories){
             category -> CategoryItem(category = category, navigateToDetail)
         }

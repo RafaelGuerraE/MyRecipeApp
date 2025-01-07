@@ -1,9 +1,11 @@
 package guerra.myrecipeapp
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -17,16 +19,16 @@ import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun CategoryDetailScreen(category: Category){
+
     Column (modifier = Modifier.fillMaxSize().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally){
 
-        Text(text = category.strCategory, textAlign = TextAlign.Center)
+        Text(text = category.strCategory, textAlign = TextAlign.Center, modifier = Modifier.padding(top = 30.dp))
 
         Image(
             painter = rememberAsyncImagePainter(category.strCategoryThumb),
             contentDescription = "${category.strCategory} Thumbnail",
-            modifier = Modifier. fillMaxSize().aspectRatio(1f)
+            modifier = Modifier.fillMaxWidth().aspectRatio(1f)
         )
-
 
         Text(
             text = category.strCategoryDescription,
