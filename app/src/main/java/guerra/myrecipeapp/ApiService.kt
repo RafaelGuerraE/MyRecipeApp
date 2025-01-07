@@ -14,6 +14,5 @@ interface ApiService {
 
     @GET("categories.php")
     suspend fun getCategories(): CategoriesResponse
-
-
+    
 }
